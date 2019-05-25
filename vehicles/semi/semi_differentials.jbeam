@@ -1,0 +1,39 @@
+{
+
+"semi_differential_R_1_lsd": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Limited Slip Front Rear Differential",
+        "value":900,
+    }
+    "slotType" : "semi_differential_R_1",
+    "slots": [
+        ["type", "default", "description"]
+        ["semi_finaldrive_R_1","semi_finaldrive_R_1_293", "Front Rear Final Drive", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        //rear diff
+        ["differential", "differential_R_1", "transfercase", 1, {"diffType":"lsd", "lsdPreload":500, "lsdLockCoef":0.6, "lsdRevLockCoef":0.2, "friction":15, "uiName":"Front Rear Differential","defaultVirtualInertia":0.5}]
+    ],
+}
+
+"semi_differential_R_2_lsd": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Limited Slip Rear Rear Differential",
+        "value":900,
+    }
+    "slotType" : "semi_differential_R_2",
+    "slots": [
+        ["type", "default", "description"]
+        ["semi_finaldrive_R_2","semi_finaldrive_R_2_293", "Rear Rear Final Drive", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        //rear diff
+        ["differential", "differential_R_2", "intershaft", 1, {"diffType":"lsd", "lsdPreload":250, "lsdLockCoef":0.2, "lsdRevLockCoef":0.2, "friction":15, "uiName":"Rear Rear Differential","defaultVirtualInertia":0.5}]
+    ],
+}
+
+}

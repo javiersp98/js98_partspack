@@ -1,0 +1,190 @@
+{
+
+"hatch_transmission_6M2": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"6-Speed Manual Transmission",
+        "value":350,
+    },
+
+    "slotType" : "hatch_transmission",
+    "slots": [
+        ["type", "default","description"]
+        ["hatch_flywheel","hatch_flywheel","Flywheel", {"coreSlot":true}],
+        ["hatch_differential_F","hatch_differential_F", "Front Differential"],
+    ],
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1],
+        ["manualGearbox", "gearbox", "clutch", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":[-3.0, 0, 3.65, 2.37, 1.67, 1.28, 0.98, 0.78],
+        "friction": 5,
+        "gearboxNode:":["tra1"],
+    },
+    "clutch": {
+        "uiName":"Clutch",
+    },
+    "vehicleController": {
+        "calculateOptimalLoadShiftPoints": true
+        //"shiftDownRPMOffsetCoef":1.25,
+        //"aggressionSmoothingDown":0.05
+        "lowShiftDownRPM":[0,0,0,1600,2000,1800,1800],
+        "lowShiftUpRPM":[0,0,3400,3200,3000,3000],
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["hatch_transmission", ["hatch_engine","hatch_transmission"]],
+        ["hatch_shifterbase_M", ["hatch_body"]],
+    ],
+    "props": [
+        ["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
+        //manual transmission
+        ["gear_M",       "hatch_shifter_M",    "f7r","f7l","f8r", {"x":85, "y":0, "z":0}, {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+        ["parkingbrake", "hatch_parkingbrake", "f7r","f7l","f8r", {"x":90, "y":0, "z":0}, {"x":-35, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+        ["clutch",       "hatch_clutchpedal",  "f1l","f1r","f6l", {"x":0, "y":0, "z":180}, {"x":-25, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        //--5 Speed Manual--
+        {"selfCollision":false},
+        {"collision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        {"frictionCoef":0.5},
+        {"group":"hatch_transmission"},
+        {"nodeWeight":6.5},
+        ["tra1", 0.37, -1.43, 0.39],
+        {"group":"hatch_differential"},
+        ["tra2", 0.25, -1.25, 0.325],
+        ["tra3", 0.0, -1.25, 0.325{"nodeWeight":12}],
+        {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--TRANSMISSION CONE--
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":8001000,"beamDamp":250},
+          {"beamDeform":250000,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          ["tra1","tra2"],
+          ["tra1","tra3"],
+          ["tra2","tra3"],
+          ["tra2","e2l"],
+          ["tra3","e2l"],
+          ["tra2","e1l"],
+          ["tra3","e1l"],
+          ["tra2","e3l"],
+          ["tra3","e3l"],
+          ["tra2","e4l"],
+          ["tra3","e4l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+
+"hatch_transmission_6M_race_seq": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"Race 6-Speed Sequential Transmission",
+        "value":1200,
+    },
+
+    "slotType" : "hatch_transmission",
+    "slots": [
+        ["type", "default","description"]
+        ["hatch_flywheel","hatch_flywheel_race","Flywheel", {"coreSlot":true}],
+        ["hatch_differential_F","hatch_differential_F", "Front Differential"],
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+        ["$gear_R", "range", ":1", "Transmission", 3.58, 0.5, 5, "Reverse Gear Ratio", "Torque multiplication ratio", {"stepDis":0.01}]
+        ["$gear_1", "range", ":1", "Transmission", 3.27, 0.5, 5, "1st Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}]
+        ["$gear_2", "range", ":1", "Transmission", 2.13, 0.5, 5, "2nd Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}]
+        ["$gear_3", "range", ":1", "Transmission", 1.52, 0.5, 5, "3rd Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}]
+        ["$gear_4", "range", ":1", "Transmission", 1.15, 0.5, 5, "4th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}]
+        ["$gear_5", "range", ":1", "Transmission", 0.92, 0.5, 5, "5th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}]
+        ["$gear_6", "range", ":1", "Transmission", 0.74, 0.5, 5, "6th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}]
+    ],
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1],
+        ["sequentialGearbox", "gearbox", "clutch", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":["$=-$gear_R", 0, "$gear_1", "$gear_2", "$gear_3", "$gear_4", "$gear_5", "$gear_6"]
+        "friction": 5,
+        "gearboxNode:":["tra1"],
+    },
+    "clutch": {
+        "uiName":"Clutch",
+    },
+    "vehicleController": {
+        "transmissionShiftDelay":0.12,
+        "shiftDownRPMOffsetCoef":1.12,
+        "calculateOptimalLoadShiftPoints": true,
+        //"aggressionSmoothingDown":0.05
+        "aggressionHoldOffThrottleDelay":3,
+        "lowShiftDownRPM":[0,0,0,2100,2300,2300,2300,2300],
+        "lowShiftUpRPM":[0,0,4000,3800,3700,3550,3450],
+        //"lowShiftDownRPM":[0,0,0,1600,1900,1800,1600,1500],
+        //"lowShiftUpRPM":[0,0,3400,3000,2900,2800,2700],
+        //"wheelSlipUpThreshold":150,
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["hatch_transmission", ["hatch_engine","hatch_transmission"]],
+        ["hatch_shifterbase_M", ["hatch_body"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        //manual transmission
+        ["gear_M"   ,"hatch_shifter_M", "f7r","f7l","f8r", {"x":85, "y":0, "z":0}, {"x":0, "y":0, "z":0}     , {"x":0, "y":0, "z":0.0}, 0, 1, 0, 1],
+        ["parkingbrake"     ,"hatch_parkingbrake", "f7r","f7l","f8r",  {"x":90, "y":0, "z":0} , {"x":-35, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+        ["clutch"     ,"hatch_clutchpedal", "f1l","f1r","f6l", {"x":0, "y":0, "z":180}, {"x":-25, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        //--6 Speed Manual--
+        {"selfCollision":false},
+        {"collision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        {"frictionCoef":0.5},
+        {"group":"hatch_transmission"},
+        {"nodeWeight":7},
+        ["tra1", 0.37, -1.43, 0.39],
+        {"group":"hatch_differential"},
+        ["tra2", 0.25, -1.25, 0.325],
+        ["tra3", 0.0, -1.25, 0.325{"nodeWeight":12}],
+        {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--TRANSMISSION CONE--
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":8001000,"beamDamp":250},
+          {"beamDeform":250000,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          ["tra1","tra2"],
+          ["tra1","tra3"],
+          ["tra2","tra3"],
+          ["tra2","e2l"],
+          ["tra3","e2l"],
+          ["tra2","e1l"],
+          ["tra3","e1l"],
+          ["tra2","e3l"],
+          ["tra3","e3l"],
+          ["tra2","e4l"],
+          ["tra3","e4l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+
+}

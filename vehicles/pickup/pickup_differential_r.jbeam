@@ -1,0 +1,39 @@
+{
+
+"pickup_finaldrive_R_327": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.27:1 Rear Final Drive",
+        "value":150,
+    },
+    "slotType" : "pickup_finaldrive_R",
+    "differential_R" : {
+        "gearRatio":3.27
+    },
+},
+
+"pickup_finaldrive_R_454": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.54:1 Rear Final Drive",
+        "value":150,
+    },
+    "slotType" : "pickup_finaldrive_R",
+    "differential_R" : {
+        "gearRatio":4.54
+    },
+},
+
+"pickup_finaldrive_R_508": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"5.08:1 Rear Final Drive",
+        "value":150,
+    },
+    "slotType" : "pickup_finaldrive_R",
+    "differential_R" : {
+        "gearRatio":5.08
+    },
+},
+
+}

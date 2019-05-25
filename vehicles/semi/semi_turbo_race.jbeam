@@ -1,0 +1,59 @@
+{
+
+"semi_turbo_race": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Race T400 Turbocharger",
+        "value":4700,
+    }
+    "slotType" : "semi_turbo",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_turbo", ["semi_engine"]],
+    ],
+    "turbocharger": {
+        "bovSoundFileName":"event:>Vehicle>Forced_Induction>turbo_semi_01>turbo_bov"
+        "hissLoopEvent":"event:>Vehicle>Forced_Induction>turbo_semi_01>turbo_hiss"
+        "whineLoopEvent":"event:>Vehicle>Forced_Induction>turbo_semi_01>turbo_spin"
+        "bovEnabled":false,
+        "bovSoundVolumeCoef": 0.0,
+        "hissVolumePerPSI": 0.0,
+        "whineVolumePer10kRPM": 0.08,
+        "whinePitchPer10kRPM": 0.074,
+        "wastegateStart":40,
+        "wastegateLimit":42,
+        "maxExhaustPower": 24000,
+        "backPressureCoef": 0.000065,
+        "frictionCoef": 14,
+        "inertia":16,
+        "damageThresholdTemperature": 900,
+        "pressurePSI":[
+            //turbineRPM, pressure(PSI)
+            [0,         0],
+            [30000,     5],
+            [60000,     18],
+            [90000,     37],
+            [150000,    51],
+            [200000,    59],
+            [250000,    68],
+            [300000,    77],
+        ],
+        "engineDef":[
+            //engineRPM, efficiency, exhaustFactor
+            [0,     0.2,   0.1],
+            [250,   0.6,   0.1],
+            [500,   0.7,   0.2],
+            [800,   0.8,   0.4],
+            [1400,  0.9,   0.6],
+            [2000,  0.9,  0.8],
+            [2500,  0.9,   0.9],
+            [3000,  0.9,   0.9],
+        ],
+    },
+    "mainEngine": {
+        //turbocharger name
+        "turbocharger":"turbocharger",
+    },
+}
+
+}

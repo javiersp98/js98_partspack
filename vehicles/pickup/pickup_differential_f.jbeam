@@ -1,0 +1,75 @@
+{
+
+"pickup_finaldrive_F_327": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.27:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "pickup_finaldrive_F",
+    "torsionReactorF" : {
+		"gearRatio":3.27,
+    },
+},
+
+"pickup_finaldrive_SFA_327": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.27:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "pickup_finaldrive_SFA",
+    "differential_F" : {
+		"gearRatio":3.27,
+    },
+},
+
+"pickup_finaldrive_F_454": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.54:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "pickup_finaldrive_F",
+    "torsionReactorF" : {
+		"gearRatio":4.54,
+    },
+},
+
+"pickup_finaldrive_SFA_454": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.54:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "pickup_finaldrive_SFA",
+    "differential_F" : {
+		"gearRatio":4.54,
+    },
+},
+
+"pickup_finaldrive_F_508": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"5.08:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "pickup_finaldrive_F",
+    "torsionReactorF" : {
+		"gearRatio":5.08,
+    },
+},
+
+"pickup_finaldrive_SFA_508": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"5.08:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "pickup_finaldrive_SFA",
+    "differential_F" : {
+		"gearRatio":5.08,
+    },
+},
+
+}
