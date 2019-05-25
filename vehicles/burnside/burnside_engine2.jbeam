@@ -1,0 +1,45 @@
+{	
+
+"burnside_supercharger_stage1_313": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Supercharger",
+        "value":1100,
+    }
+    "slotType" : "burnside_intake_v8",
+    "supercharger": {
+        "gearRatio":1.35,
+        "clutchEngageRPM":0,
+        "pressureRatePSI":500,
+        "pressurePSIPer1kRPM":2.65,
+        "crankLossPer1kRPM":0.04,
+        "type":"roots",
+        "lobes":2,
+        "twistedLobes":false,
+        "boostController":[
+            //throttle in %, factor
+            [0,     0.2],
+            [100,     1],
+        ],
+    },	
+    "mainEngine":{
+        "maxRPM":5000,
+        //"burnEfficiency":0.24
+        //supercharger name
+        "supercharger":"supercharger",
+        "instantAfterFireCoef": 1,
+        "sustainedAfterFireCoef": 1.25,		
+		"maxTorqueRating": 800,
+		"maxOverTorqueDamage": 200,	
+    },
+    "vehicleController": {
+        "highShiftUpRPM":5000
+        "revMatchThrottle":0.3
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["burnside_supercharger_stage1", ["burnside_engine"]],
+    ],
+}
+
+}

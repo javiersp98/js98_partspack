@@ -1,0 +1,27 @@
+{
+
+"barstow_finaldrive_R_2641": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"2.64:1 Rear Final Drive",
+        "value":150,
+    },
+    "slotType" : "barstow_finaldrive_R",
+    "differential_R" : {
+        "gearRatio":2.64,
+    },
+},
+
+"barstow_finaldrive_R_3551": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"3.55:1 Rear Final Drive",
+        "value":150,
+    },
+    "slotType" : "barstow_finaldrive_R",
+    "differential_R" : {
+        "gearRatio":3.55,
+    },
+},
+
+}

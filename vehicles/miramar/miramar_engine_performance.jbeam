@@ -1,0 +1,92 @@
+{
+
+"miramar_engine_internals_stage3_2": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"Stage 3 Performance Long Block",
+        "value":3600,
+    }
+    "slotType" : "miramar_engine_internals",
+    "mainEngine":{
+        "torqueModMult":[
+            ["rpm", "torque"],
+            [0,    1],
+            [1000, 0.84],
+            [2500, 0.80],
+            [4000, 0.87],
+            [5000, 0.99],
+            [6000, 1.20],
+            [7000, 1.43],
+            [8000, 2.05],
+            [9000, 3.30],
+        ],
+        //max rpm physically capable of
+        "maxRPM":9200,
+		"idleRPM":1250,
+        //engine durability
+        "cylinderWallTemperatureDamageThreshold":170,
+
+        "maxTorqueRating": 360,
+        "maxOverTorqueDamage": 370,
+    },
+    "vehicleController": {
+        "clutchLaunchStartRPM":2000,
+        "clutchLaunchTargetRPM":2900,
+    },
+},
+
+"miramar_intake_dohc_perf": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"Stage 1 Side Draft Carburetors",
+        "value":700,
+    }
+    "slotType" : "miramar_intake_dohc",
+    "mainEngine":{
+        "torqueModIntake":[
+            ["rpm", "torque"],
+            [0, 0],
+            [1000, 2],
+            [2000, 6],
+            [3000, 12],
+            [4000, 16],
+            [5000, 22],
+            [6000, 30],
+            [7000, 40],
+            [8000, 60],
+            [9000, 70],
+        ],
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["miramar_engine_1_6_dohc", ["miramar_engine"]],
+        {"deformGroup":"radtube_break", "deformMaterialBase":"miramar", "deformMaterialDamaged":"invis"},
+        ["miramar_radtube_dohc", ["miramar_radtube"]],
+        {"deformGroup":"", "deformMaterialBase":"", "deformMaterialDamaged":""},
+    ],
+},
+
+"miramar_engine_ecu_race_2": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"Performance Rev Limiter",
+        "value":700,
+    }
+    "slotType" : "miramar_engine_ecu",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$revLimiterRPM", "range", "rpm", "Engine", 9000, 4500, 12000, "RPM Limit", "RPM where the rev limiter prevents further revving"{"stepDis":50}],
+        ["$revLimiterCutTime", "range", "s", "Engine", 0.12, 0.01, 0.5, "RPM Limit Cut Time", "How fast the rev limiter cycles"{"stepDis":0.01}],
+    ],
+    "mainEngine":{
+        "hasRevLimiter":true,
+        "revLimiterRPM":"$revLimiterRPM",
+        "revLimiterType":"timeBased",
+        "revLimiterCutTime":"$revLimiterCutTime",
+    },
+    "vehicleController": {
+        "highShiftUpRPM":"$=$revLimiterRPM - 200"
+    },
+},
+
+}

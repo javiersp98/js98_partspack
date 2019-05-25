@@ -1,0 +1,111 @@
+{
+
+"miramar_engine_internals_gtz": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"GTz Internals",
+        "value":500,
+    }
+    "slotType" : "miramar_engine_internals",
+    "mainEngine":{
+        "torqueModMult":[
+            ["rpm", "torque"],
+            [0,    1],
+            [1000, 1.15],
+            [2000, 1.15],
+            [3000, 1.15],
+            [4000, 1.15],
+            [5000, 1.07],
+            [6000, 1],
+            [7000, 1],
+            [8000, 1],
+            [9000, 1],
+        ],
+        //max rpm physically capable of
+        "maxRPM":6000,
+        //engine durability
+        "cylinderWallTemperatureDamageThreshold":160,
+
+        "maxTorqueRating": 260,
+        "maxOverTorqueDamage": 350,
+    },
+},
+
+"miramar_transmission_5Mgtz": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"GTz 5-Speed Manual Transmission",
+        "value":500,
+    },
+    "slotType" : "miramar_transmission",
+    "slots": [
+        ["type", "default","description"]
+        ["miramar_flywheel","miramar_flywheel","Flywheel", {"coreSlot":true}],
+    ],
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1],
+        ["manualGearbox", "gearbox", "clutch", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        // stock 4M  [-3.35, 0, 3.59, 2.02, 1.38, 1.00]
+        // race  5M  [-3.48, 0, 2.63, 1.89, 1.38, 1.00, 0.86]
+        "gearRatios":[-3.48, 0, 3.08, 1.89, 1.38, 1.10, 0.86]
+        "friction": 3.8,
+        "gearboxNode:":["tra1"],
+    },
+    "clutch": {
+        "uiName":"Clutch",
+    },
+    "vehicleController": {
+        "calculateOptimalLoadShiftPoints": true,
+        "shiftDownRPMOffsetCoef":1.2,
+        "lowShiftDownRPM":[0,0,0,1600,1900,1700],
+        "lowShiftUpRPM":[0,0,3400,2800,2700],
+    },
+    "engine":{
+        "transmissionType":"manual",
+        // -1, 0 (neutral), 1, etc
+        "gears":[-3.48, 0, 3.08, 1.89, 1.38, 1.10, 0.86]
+        "clutchDuration":0.15
+        //"clutchTorque":180
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["miramar_transmission", ["miramar_engine","miramar_transmission"]],
+    ],
+    "props": [
+        ["func"        , "mesh"                , "idRef:", "idX:", "idY:", "baseRotation"      , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        //shifter
+        ["gear_M"      , "miramar_shifter_M"    , "f7r", "f7l", "f8r", {"x":90, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+        //pedal
+        ["clutch"     ,"miramar_clutchpedal", "f1r","f1l","c1r",    {"x":20, "y":0, "z":0}, , {"x":-25, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--4 Speed Manual--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":false},
+         {"collision":true}
+         {"group":"miramar_transmission"},
+         {"nodeWeight":14},
+         ["tra1", 0.0, -0.1, 0.31],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--TRANSMISSION CONE--
+          {"beamSpring":15001000,"beamDamp":400},
+          {"beamDeform":175000,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+
+}

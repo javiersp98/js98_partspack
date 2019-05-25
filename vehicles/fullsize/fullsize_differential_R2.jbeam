@@ -1,0 +1,30 @@
+{
+"fullsize_finaldrive_R_4102": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.10:1 Rear Final Drive",
+        "value":150,
+    },
+
+    "slotType" : "fullsize_finaldrive_R",
+
+    "differential_R" : {
+        "gearRatio":4.10,
+    },
+},
+
+"fullsize_finaldrive_R_3552": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.55:1 Rear Final Drive",
+        "value":150,
+    },
+
+    "slotType" : "fullsize_finaldrive_R",
+
+    "differential_R" : {
+        "gearRatio":3.55,
+    },
+},
+
+}

@@ -1,0 +1,75 @@
+{
+	
+"etki_engine_ecu_sport": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"Sport ECU",
+        "value":100,
+    }
+    "slotType" : "etki_engine_ecu",
+    "mainEngine":{
+        "idleRPM":850,
+        "revLimiterRPM":6200,
+        "revLimiterType":"timeBased",
+        "revLimiterCutTime":0.16,
+    },
+},
+
+"etki_engine_ecu_ttsport": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"TTSport ECU",
+        "value":125,
+    }
+    "slotType" : "etki_engine_ecu",
+    "mainEngine":{
+        "idleRPM":900,
+        "revLimiterRPM":6600,
+        "revLimiterType":"timeBased",
+        "revLimiterCutTime":0.16,
+    },
+},
+
+"etki_engine_ecu_ttsport_evo": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"TTSport Evolution ECU",
+        "value":150,
+    }
+    "slotType" : "etki_engine_ecu",
+    "mainEngine":{
+        "idleRPM":1000,
+        "revLimiterRPM":7000,
+        "revLimiterType":"timeBased",
+        "revLimiterCutTime":0.16,
+    },
+},
+
+"etki_engine_ecu_performance": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"Adjustable Performance ECU",
+        "value":800,
+    }
+    "slotType" : "etki_engine_ecu",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$revLimiterRPM", "range", "rpm", "Engine", 6200, 4500, 8000, "RPM Limit", "RPM where the rev limiter prevents further revving"{"stepDis":50}],
+        ["$revLimiterCutTime", "range", "s", "Engine", 0.12, 0.01, 0.5, "RPM Limit Cut Time", "How fast the rev limiter cycles"{"stepDis":0.01}],
+    ],
+    "controller": [
+        ["fileName"],
+        ["twoStepLaunch", {"rpmLimit":4000}]
+    ],
+    "mainEngine":{
+        "idleRPM":1000,
+        "revLimiterRPM":"$revLimiterRPM",
+        "revLimiterType":"timeBased",
+        "revLimiterCutTime":"$revLimiterCutTime",
+    },
+    "vehicleController": {
+        "highShiftUpRPM":"$=$revLimiterRPM - 200"
+    },
+},
+
+}

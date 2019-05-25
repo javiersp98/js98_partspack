@@ -1,0 +1,83 @@
+{
+
+"miramar_transmission_6M_race": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"Race 6-Speed Manual Transmission",
+        "value":1800,
+    },
+    "slotType" : "miramar_transmission",
+    "slots": [
+        ["type", "default","description"]
+        ["miramar_flywheel","miramar_flywheel_race","Flywheel", {"coreSlot":true}],
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+		["$gear_R", "range", ":1", "Transmission", -2.95, -6.0, -0.5, "Reverse Gear Ratio", "Torque multiplication ratio"]
+        ["$gear_1", "range", ":1", "Transmission", 3.65, 0.5, 6.0, "1st Gear Ratio", "Torque multiplication ratio"]
+        ["$gear_2", "range", ":1", "Transmission", 2.37, 0.5, 6.0, "2nd Gear Ratio", "Torque multiplication ratio"]
+        ["$gear_3", "range", ":1", "Transmission", 1.67, 0.5, 6.0, "3rd Gear Ratio", "Torque multiplication ratio"]
+        ["$gear_4", "range", ":1", "Transmission", 1.28, 0.5, 6.0, "4th Gear Ratio", "Torque multiplication ratio"]
+        ["$gear_5", "range", ":1", "Transmission", 1.02, 0.5, 6.0, "5th Gear Ratio", "Torque multiplication ratio"]
+        ["$gear_6", "range", ":1", "Transmission", 0.82, 0.5, 6.0, "6th Gear Ratio", "Torque multiplication ratio"]
+    ],
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1],
+        ["manualGearbox", "gearbox", "clutch", 1],
+    ],
+    "gearbox": {
+        "gearRatios":["$gear_R", 0, "$gear_1", "$gear_2", "$gear_3", "$gear_4", "$gear_5", "$gear_6"]
+        "friction": 1,
+    },
+    "clutch": {},
+    "vehicleController": {
+        "calculateOptimalLoadShiftPoints": true,
+        "transmissionShiftDelay":0.12,
+        "shiftDownRPMOffsetCoef":1.2,
+        //"aggressionSmoothingDown":0.05
+        "aggressionHoldOffThrottleDelay":3,
+        //"lowShiftDownRPM":[0,0,0,1600,1900,1700,1600],
+        //"lowShiftUpRPM":[0,0,3500,3200,2900,2700],
+        "lowShiftDownRPM":[0,0,0,2000,2400,2400,2400],
+        "lowShiftUpRPM":[0,0,4200,4100,4000,3800],
+       //"wheelSlipUpThreshold":75,
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["miramar_transmission", ["miramar_engine","miramar_transmission"]],
+    ],
+    "props": [
+        ["func"        , "mesh"                , "idRef:", "idX:", "idY:", "baseRotation"      , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        //shifter
+        ["gear_M"      , "miramar_shifter_M"    , "f7r", "f7l", "f8r", {"x":90, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+        //pedal
+        ["clutch"     ,"miramar_clutchpedal", "f1r","f1l","c1r",    {"x":20, "y":0, "z":0}, , {"x":-25, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--5 Speed Manual Close Ratio--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":false},
+         {"collision":true}
+         {"group":"miramar_transmission"},
+         {"nodeWeight":18},
+         ["tra1", 0.0, -0.1, 0.31],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--TRANSMISSION CONE--
+          {"beamSpring":6440460,"beamDamp":145},
+          {"beamDeform":857999.9,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+
+}

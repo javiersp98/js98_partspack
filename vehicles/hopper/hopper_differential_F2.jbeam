@@ -1,0 +1,27 @@
+{
+
+"hopper_finaldrive_F_454": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"4.54:1 Front Final Drive",
+        "value":150,
+    },
+    "slotType" : "hopper_finaldrive_F",
+    "differential_F" : {
+        "gearRatio":4.54,
+    },
+},
+
+"hopper_finaldrive_F_508": {
+    "information":{
+        "authors":"Javiersp98",
+        "name":"5.08:1 Front Final Drive",
+        "value":150,
+    },
+    "slotType" : "hopper_finaldrive_F",
+    "differential_F" : {
+        "gearRatio":5.08,
+    },
+},
+
+}
