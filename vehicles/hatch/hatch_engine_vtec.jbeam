@@ -46,7 +46,7 @@
 
 "hatch_internals_vtec": {
     "information":{
-        "authors":"BeamNG",
+        "authors":"Javiersp98",
         "name":"V-Tec Tuning",
         "value":300,
     }
@@ -79,7 +79,7 @@
 
 "hatch_internals_vtec_s": {
     "information":{
-        "authors":"BeamNG",
+        "authors":"Javiersp98",
         "name":"V-Tec S Tuning",
         "value":400,
     }
@@ -116,7 +116,7 @@
 
 "hatch_internals_vtec_r": {
     "information":{
-        "authors":"BeamNG",
+        "authors":"Javiersp98",
         "name":"V-Tec R Tuning",
         "value":650,
     }
@@ -146,8 +146,8 @@
         "maxTorqueRating": 400,
         "maxOverTorqueDamage": 250,
 
-        "instantAfterFireCoef": 0.75,
-        "sustainedAfterFireCoef": 1.25,
+        "instantAfterFireCoef": 1,
+        "sustainedAfterFireCoef": 1.50,
     },
 },
 

@@ -1,0 +1,83 @@
+{
+
+"hatch_coilover_F_lift": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Lifted Front Struts",
+        "value":225,
+    },
+    "slotType" : "hatch_coilover_F",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["hatch_coilover_F", ["hatch_shockbottom_F","hatch_shocktop_F"]],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //front springs with soft initial bump stop
+          {"beamPrecompression":1.20, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
+          {"beamDeform":12500,"beamStrength":125000},
+          {"beamSpring":20000,"beamDamp":0},
+          {"beamLimitSpring":35000,"beamLimitDamp":1000},
+          ["fh1r","fs1r"{"precompressionRange":0.125,"longBoundRange":1,"shortBoundRange":0.15,"boundZone":0.07,"beamLimitDampRebound":0,"dampCutoffHz":500,
+              "soundFile":"event:>Vehicle>Suspension>car_modn_med_01>spring_compress_01","colorFactor":0.3,"attackFactor":10,"volumeFactor":0.8,"decayMode":1,"decayFactor":5,"pitchFactor":0.35,"maxStress":1000}],
+          ["fh1l","fs1l"{"precompressionRange":0.125,"longBoundRange":1,"shortBoundRange":0.15,"boundZone":0.07,"beamLimitDampRebound":0,"dampCutoffHz":500,
+              "soundFile":"event:>Vehicle>Suspension>car_modn_med_01>spring_compress_01","colorFactor":0.3,"attackFactor":10,"volumeFactor":0.8,"decayMode":1,"decayFactor":5,"pitchFactor":0.35,"maxStress":1000}],
+          //shocks
+          {"beamSpring":0,"beamDamp":4000},
+          {"beamLimitSpring":0,"beamLimitDamp":0},
+          ["fh1r","fs1r"{"beamDampFast":2000,"beamDampRebound":5000,"beamDampReboundFast":3000,"beamDampVelocitySplit":0.1,"dampCutoffHz":500}],
+          ["fh1l","fs1l"{"beamDampFast":2000,"beamDampRebound":5000,"beamDampReboundFast":3000,"beamDampVelocitySplit":0.1,"dampCutoffHz":500}],
+          //harder bump stop
+          {"beamSpring":0,"beamDamp":0},
+          {"beamLimitSpring":201000,"beamLimitDamp":8000},
+          ["fh1r","fs1r"{"longBoundRange":0.07,"shortBoundRange":0.05,"boundZone":0.04,"beamLimitDampRebound":0,"dampCutoffHz":500}],
+          ["fh1l","fs1l"{"longBoundRange":0.07,"shortBoundRange":0.05,"boundZone":0.04,"beamLimitDampRebound":0,"dampCutoffHz":500}],
+          //shock and suspension friction
+          {"beamSpring":0,"beamDamp":400000},
+          //["fh1r","fs1r",{"beamDampFast":0,"beamDampRebound":400000,"beamDampReboundFast":0,"beamDampVelocitySplit":0.0001}],
+          //["fh1l","fs1l",{"beamDampFast":0,"beamDampRebound":400000,"beamDampReboundFast":0,"beamDampVelocitySplit":0.0001}],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+
+"hatch_coilover_R_lift": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Lifted Rear Struts",
+        "value":200,
+    },
+    "slotType" : "hatch_coilover_R",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["hatch_coilover_R", ["hatch_lowerarm_a_R","hatch_shocktop_R"]],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //rear springs with soft initial bump stop
+          {"beamPrecompression":1.25, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
+          {"beamDeform":12500,"beamStrength":125000},
+          {"beamSpring":14000,"beamDamp":0},
+          {"beamLimitSpring":31500,"beamLimitDamp":1000},
+          ["rh1l","rs1l"{"precompressionRange":0.148,"longBoundRange":1,"shortBoundRange":0.16,"boundZone":0.07,"beamLimitDampRebound":0,"dampCutoffHz":500,
+              "soundFile":"event:>Vehicle>Suspension>car_modn_med_01>spring_compress_01","colorFactor":0.3,"attackFactor":10,"volumeFactor":0.8,"decayMode":1,"decayFactor":5,"pitchFactor":0.35,"maxStress":600}],
+          ["rh1r","rs1r"{"precompressionRange":0.148,"longBoundRange":1,"shortBoundRange":0.16,"boundZone":0.07,"beamLimitDampRebound":0,"dampCutoffHz":500,
+              "soundFile":"event:>Vehicle>Suspension>car_modn_med_01>spring_compress_01","colorFactor":0.3,"attackFactor":10,"volumeFactor":0.8,"decayMode":1,"decayFactor":5,"pitchFactor":0.35,"maxStress":600}],
+          //shocks
+          {"beamSpring":0,"beamDamp":3000},
+          {"beamLimitSpring":0,"beamLimitDamp":0},
+          ["rh1r","rs1r"{"beamDampFast":1800,"beamDampRebound":3600,"beamDampReboundFast":2160,"beamDampVelocitySplit":0.1,"dampCutoffHz":500}],
+          ["rh1l","rs1l"{"beamDampFast":1800,"beamDampRebound":3600,"beamDampReboundFast":2160,"beamDampVelocitySplit":0.1,"dampCutoffHz":500}],
+          //harder bump stop
+          {"beamSpring":0,"beamDamp":0},
+          {"beamLimitSpring":201000,"beamLimitDamp":8000},
+          ["rh1r","rs1r"{"longBoundRange":0.07,"shortBoundRange":0.06,"boundZone":0.04,"beamLimitDampRebound":0,"dampCutoffHz":500}],
+          ["rh1l","rs1l"{"longBoundRange":0.07,"shortBoundRange":0.06,"boundZone":0.04,"beamLimitDampRebound":0,"dampCutoffHz":500}],
+          //shock and suspension friction
+          {"beamSpring":0,"beamDamp":400000},
+          //["rh1r","rs1r"{"beamDampFast":0,"beamDampRebound":400000,"beamDampReboundFast":0,"beamDampVelocitySplit":0.0001}],
+          //["rh1l","rs1l"{"beamDampFast":0,"beamDampRebound":400000,"beamDampReboundFast":0,"beamDampVelocitySplit":0.0001}],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+
+}

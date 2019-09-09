@@ -1,0 +1,86 @@
+{
+
+"legran_supercharger_stage22": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Stage 2 Supercharger",
+        "value":800,
+    }
+    "slotType" : "legran_intake_v6",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["legran_supercharger", ["legran_engine","legran_airbox"]],
+    ],
+    "supercharger": {
+        "whineLoopEvent": "event:>Vehicle>Forced_Induction>Supercharger_01>supercharger"
+        "whineVolumePerPSI": 0.04
+        "whinePitchPer10kRPM": 0.70
+        "gearRatio":1.4,
+        "clutchEngageRPM":0,
+        "pressureRatePSI":250,
+        "pressurePSIPer1kRPM":2.2,
+        "crankLossPer1kRPM":0.045,
+        "type":"roots",
+        "lobes":3,
+        "twistedLobes":true,
+        "boostController":[
+            //throttle in %, factor
+            [0,     0.2],
+            [100,     1],
+        ],
+    },
+    "mainEngine": {
+        //supercharger name
+        "supercharger":"supercharger",
+        "instantAfterFireCoef": 1,
+        "sustainedAfterFireCoef": 0.75,
+        "torqueModIntake":[
+            ["rpm", "torque"],
+            [0, 0],
+            [1000, 0],
+            [2000, 1],
+            [3000, 4],
+            [4000, 9],
+            [5000, 13],
+            [6000, 25],
+            [7000, 32],
+            [8000, 40],
+        ],
+    },
+    "soundConfig": {
+        "$+intakeMuffling":-0.3,
+        "$+mainGain":0,
+    },
+    "vehicleController": {
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":true}
+         {"nodeMaterial":"|NM_METAL"},
+         {"frictionCoef":0.5},
+         {"group":"legran_airbox"},
+         {"engineGroup":"engine_intake"},
+         {"nodeWeight":5},
+         ["airb", 0.40, -1.72, 0.66],
+         {"engineGroup":""},
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":100600,"beamDamp":150},
+          {"beamDeform":12000,"beamStrength":36000},
+          ["airb","e1r"],
+          ["airb","e2r"],
+          ["airb","e3r"],
+          ["airb","e4r"],
+          ["airb","e1l"],
+          ["airb","e2l"],
+          ["airb","e3l"],
+          ["airb","e4l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+}
+
+}

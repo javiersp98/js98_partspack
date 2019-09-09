@@ -1,0 +1,40 @@
+{
+
+"etk_transfer_case_FWD": {
+    "information":{
+        "authors":"Javiersp98, idea by PabloMM",
+        "name":"FWD Transfer Case",
+        "value":600,
+    },
+    "slotType" : "etk_transfer_case",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["shaft", "transfercase", "gearbox", 1, {"outputPortOverride":[2], "friction":2, "uiName":"Front Output Shaft"}],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--tcase weight--
+         {"selfCollision":false},
+         {"collision":false},
+         {"nodeMaterial":"|NM_METAL"},
+         {"frictionCoef":0.5},
+         {"group":"etk_transmission"},
+         {"nodeWeight":20},
+         ["tcase", 0.13, -0.43, 0.33],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":1500600,"beamDamp":60},
+          {"beamDeform":30000,"beamStrength":"FLT_MAX"},
+          ["tcase","e1r"],
+          ["tcase","e3r"],
+          ["tcase","e1l"],
+          ["tcase","e3l"],
+          ["tcase","tra1"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+
+}

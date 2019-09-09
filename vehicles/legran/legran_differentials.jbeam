@@ -1,0 +1,27 @@
+{
+
+"legran_finaldrive_F_373": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.73:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "legran_finaldrive_F",
+    "torsionReactorF" : {
+        "gearRatio":3.73,
+    },
+},
+
+"legran_finaldrive_F_410": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.10:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "legran_finaldrive_F",
+    "torsionReactorF" : {
+        "gearRatio":4.10,
+    },
+},
+
+}

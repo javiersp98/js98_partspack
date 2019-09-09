@@ -1,0 +1,65 @@
+{
+
+"moonhawk_transmission_4A_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4-Speed Automatic Transmission",
+        "value":400,
+    }
+    "slotType" : "moonhawk_transmission",
+    "slots": [
+        ["type", "default", "description"]
+        ["moonhawk_converter","moonhawk_converter","Torque Converter", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["torqueConverter", "torqueConverter", "mainEngine", 1],
+        ["automaticGearbox", "gearbox", "torqueConverter", 1],
+    ],
+    "gearbox": {
+        "gearRatios":[-2.71, 0, 2.67, 1.84, 1.33, 1.0]
+        "parkLockTorque":2500,
+        "oneWayViscousCoef":15,
+        "friction": 10,
+    },
+    "vehicleController": {
+        "automaticModes":"PRND21",
+        "useSmartAggressionCalculation":false,
+        "calculateOptimalLoadShiftPoints": true,
+        "transmissionGearChangeDelay":2
+        "gearboxDecisionSmoothingUp":0.5
+        "gearboxDecisionSmoothingDown":0.5
+        "lowShiftDownRPM":1000,
+        "lowShiftUpRPM":[0,0,1700,1500]
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["moonhawk_transmission", ["moonhawk_engine","moonhawk_transmission"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--3 Speed Automatic--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":false},
+         {"collision":true}
+         {"group":"moonhawk_transmission"},
+         {"nodeWeight":33},
+         ["tra1", 0.0, -0.38, 0.32],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--TRANSMISSION CONE--
+          {"beamSpring":9130830,"beamDamp":168},
+          {"beamDeform":359100,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+}
+
+}

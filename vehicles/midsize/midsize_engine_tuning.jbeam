@@ -1,0 +1,104 @@
+{
+
+"midsize_intake_v6_sport": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Sport Intake",
+        "value":120,
+    }
+    "slotType" : "midsize_intake_v6",
+    "mainEngine":{
+        "torqueModIntake":[
+            ["rpm", "torque"],
+            [0, 0],
+            [1000, 0],
+            [2000, 1],
+            [3000, 3],
+            [4000, 5],
+            [5000, 7],
+            [6000, 9],
+            [7000, 10.5],
+            [8000, 12],
+            [9000, 13],
+        ],
+    },
+    "soundConfig": {
+        "$+intakeMuffling":0.3,
+        "$+mainGain":2,
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+    ],
+}
+
+"midsize_engine_internals_v6_stage1": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Stage 1 Performance Long Block",
+        "value":1500,
+    }
+    "slotType" : "midsize_engine_v6_internals",
+    "mainEngine":{
+        "torqueModMult":[
+            ["rpm", "torque"],
+            [0,    1],
+            [1000, 0.91],
+            [4000, 0.95],
+            [5000, 1.01],
+            [6000, 1.10],
+            [7000, 1.15],
+            [7500, 1.17],
+            [8000, 1.16],
+            [8500, 1.30],
+            [9000, 1.30],
+        ],
+        //max rpm physically capable of
+        "maxRPM":7500,
+        //engine durability
+        "cylinderWallTemperatureDamageThreshold":175,
+        "headGasketDamageThreshold":1700000,
+        "pistonRingDamageThreshold":1700000,
+        "connectingRodDamageThreshold":2200000,
+        "maxTorqueRating": 600,
+        "maxOverTorqueDamage": 450,
+    },
+},
+
+"midsize_engine_internals_v6_stage2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Stage 2 Performance Long Block",
+        "value":2000,
+    }
+    "slotType" : "midsize_engine_v6_internals",
+    "mainEngine":{
+        "torqueModMult":[
+            ["rpm", "torque"],
+            [0,    1],
+            [1000, 0.86],
+            [4000, 0.89],
+            [5000, 0.95],
+            [6000, 1.04],
+            [7000, 1.16],
+            [7500, 1.27],
+            [8000, 1.38],
+            [8500, 1.42],
+            [9000, 1.7],
+        ],
+        //max rpm physically capable of
+        "maxRPM":9000,
+        //engine durability
+        "cylinderWallTemperatureDamageThreshold":175,
+        "headGasketDamageThreshold":1700000,
+        "pistonRingDamageThreshold":1700000,
+        "connectingRodDamageThreshold":2200000,
+        "maxTorqueRating": 600,
+        "maxOverTorqueDamage": 450,
+        "instantAfterFireCoef": 1.5,
+        "sustainedAfterFireCoef": 1.0,
+        "inertia":0.08,
+        "friction":12
+    },
+},
+
+}

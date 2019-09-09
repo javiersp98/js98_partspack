@@ -1,0 +1,45 @@
+{
+
+"midsize_engine_v6_ecu_sport": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Sport ECU",
+        "value":150,
+    }
+    "slotType" : "midsize_engine_v6_ecu",
+    "mainEngine":{
+        "idleRPM":950,
+        "revLimiterRPM":7000,
+        "revLimiterType":"timeBased",
+        "revLimiterCutTime":0.18,
+    },
+},
+
+"midsize_engine_v6_ecu_performance": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Adjustable Performance ECU",
+        "value":800,
+    }
+    "slotType" : "midsize_engine_v6_ecu",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$revLimiterRPM", "range", "rpm", "Engine", 7500, 3500, 9000, "RPM Limit", "RPM where the rev limiter prevents further revving"{"stepDis":50}],
+        ["$revLimiterCutTime", "range", "s", "Engine", 0.13, 0.01, 0.5, "RPM Limit Cut Time", "How fast the rev limiter cycles"{"stepDis":0.01}],
+    ],
+    "controller": [
+        ["fileName"],
+        ["twoStepLaunch", {"rpmLimit":4000}]
+    ],
+    "mainEngine":{
+        "idleRPM":1000,
+        "revLimiterRPM":"$revLimiterRPM",
+        "revLimiterType":"timeBased",
+        "revLimiterCutTime":"$revLimiterCutTime",
+    },
+    "vehicleController": {
+        "highShiftUpRPM":"$=$revLimiterRPM - 200"
+    },
+},
+
+}

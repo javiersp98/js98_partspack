@@ -1,0 +1,331 @@
+{
+
+"citybus_engine117": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Gavril TCM 11.7L Diesel Engine",
+        "value":9700,
+    },
+    "slotType" : "citybus_engine",
+    "slots": [
+        ["type", "default", "description"]
+        //engine
+        ["citybus_transmission","citybus_transmission_4A", "Transmission"],
+        ["citybus_radiator","citybus_radiator", "Radiator"],
+        ["citybus_turbo","citybus_turbo_280", "Intake", {"coreSlot":true}],
+        ["citybus_engine_ecu","citybus_engine_ecu", "Engine Management",{"coreSlot":true}],
+        //exhaust and intake are linked from body section because they mount to body
+        ["n2o_system","", "Nitrous Oxide System"],
+        ["citybus_engine_internals","citybus_engine_internals", "Engine Long Block",{"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["combustionEngine", "mainEngine", "dummy", 0],
+    ],
+    "mainEngine":{
+        "torque":[
+            ["rpm", "torque"]
+            [0,      0],
+            [200,  340],
+            [500,  544],
+            [750,  618],
+            [1000, 655],
+            [1200, 660],
+            [1500, 650],
+            [1800, 618],
+            [2200, 556],
+            [2500, 466],
+            [3000, 220],
+        ],
+
+        "idleRPM":500,
+        "maxRPM":2400,
+        "inertia":3.1,
+        "friction":32,
+        "idleRPMRoughness":75,
+        "revLimiterType":"soft"
+        "dynamicFriction":0.3
+        "burnEfficiency":[
+            [0,   0.20],
+            [0.1, 0.25],
+            [0.3, 0.32],
+            [0.4, 0.46],
+            [0.7, 0.44],
+            [1,   0.42],
+        ],
+        "torqueReactionNodes:":["en4l","en3l","en1r"]
+        "particulates":0.2
+        "energyStorage": "mainTank",
+        "requiredEnergyType":"diesel",
+
+        //cooling and oil system
+        "thermalsEnabled":true
+        "engineBlockMaterial":"iron"
+        "oilVolume":25
+
+        //engine durability
+        "maxTorqueRating": 3300,
+        "maxOverTorqueDamage": 1300,
+
+        "cylinderWallTemperatureDamageThreshold":160
+        "headGasketDamageThreshold":1500000
+        "pistonRingDamageThreshold":1500000
+        "connectingRodDamageThreshold":1500000
+
+        //node beam interface
+        "waterDamage": {"[engineGroup]:":["intake"]}
+        "radiator": {"[engineGroup]:":["radiator"]}
+        "engineBlock": {"[engineGroup]:":["engine_block"]}
+        "breakTriggerBeam":"engine",
+        "uiName":"Engine",
+
+        "soundConfig": "soundConfig",
+        //"soundConfigExhaust": "soundConfigExhaust",
+    },
+    //"soundConfig": {
+    //    "sampleName": "I6D_engine",
+    //
+    //    "mainGain": -7,
+    //    "onLoadGain":1.0,
+    //    "offLoadGain":0.77,
+    //
+    //    "maxLoadMix": 1.0,
+    //    "minLoadMix": 0,
+    //
+    //    "eqLowGain": 0,
+    //    "eqLowFreq": 300,
+    //    "eqLowWidth": 0.1,
+    //
+    //    "eqHighGain": -8,
+    //    "eqHighFreq": 1400,
+    //    "eqHighWidth": 0.1,
+    //
+    //    "lowShelfGain":5,
+    //    "lowShelfFreq":270,
+    //
+    //    "highShelfGain":5,
+    //    "highShelfFreq":6500,
+    //
+    //    "fundamentalFrequencyCylinderCount":6
+    //    "eqFundamentalGain": 0
+    //},
+    "soundConfig": {
+        "sampleName": "I6D_exhaust",
+
+        "mainGain": 0,
+        "onLoadGain":1.0,
+        "offLoadGain":0.74,
+
+        "maxLoadMix": 1.0,
+        "minLoadMix": 0,
+
+        "eqLowGain": 0,
+        "eqLowFreq": 90,
+        "eqLowWidth": 0.05,
+
+        "eqHighGain": 0,
+        "eqHighFreq": 1400,
+        "eqHighWidth": 0.1,
+
+        "lowShelfGain":0,
+        "lowShelfFreq":270,
+
+        "highShelfGain":0,
+        "highShelfFreq":6500,
+
+        "fundamentalFrequencyCylinderCount":6
+        "eqFundamentalGain": 0
+    },
+    //"soundConfigExhaust": {
+    //    "sampleName": "I6D_exhaust",
+    //
+    //    "mainGain": 2,
+    //    "onLoadGain":1.0,
+    //    "offLoadGain":0.73,
+    //
+    //    "maxLoadMix": 1.0,
+    //    "minLoadMix": 0,
+    //
+    //    "eqLowGain": 0,
+    //    "eqLowFreq": 100,
+    //    "eqLowWidth": 0.1,
+    //
+    //    "eqHighGain": 0,
+    //    "eqHighFreq": 2500,
+    //    "eqHighWidth": 0.1,
+    //
+    //    "lowShelfGain":0,
+    //    "lowShelfFreq":100,
+    //
+    //    "highShelfGain":-8,
+    //    "highShelfFreq":1500,
+    //
+    //    "fundamentalFrequencyCylinderCount":6
+    //    "eqFundamentalGain": 0
+    //},
+
+    "vehicleController": {
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["citybus_engine", ["citybus_engine_R","citybus_engine_L"]],
+         ["citybus_compressor", ["citybus_frame"]],
+         {"deformGroup":"pipes_break", "deformMaterialBase":"citybus", "deformMaterialDamaged":"invis"},
+         ["citybus_pipes", ["citybus_frame_upper","citybus_engine_L","citybus_engine_piping"]],
+         ["citybus_compressorbelt", ["citybus_frame","citybus_engine_R","citybus_engine_L"]],
+         {"deformGroup":"", "deformMaterialBase":"", "deformMaterialDamaged":""},
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"selfCollision":true}
+        {"collision":true}
+        //--ENGINE CUBE--
+        {"nodeWeight":125},
+        {"frictionCoef":0.5},
+        {"nodeMaterial":"|NM_METAL"},
+        {"group":"citybus_engine_L"},
+        {"engineGroup":"engine_block"}
+        ["en1l", 0.24, 6.03, 0.44,{"chemEnergy":1000,"burnRate":0.39,"flashPoint":700,"specHeat": 0.1,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":"thermals","conductionRadius":0.21}],
+        ["en2l", 0.24, 5.2, 0.36,{"chemEnergy":1000,"burnRate":0.39,"flashPoint":700,"specHeat": 0.1,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":"thermals","conductionRadius":0.21}],
+        ["en3l", 0.24, 5.95, 1.42,{"chemEnergy":1000,"burnRate":0.39,"flashPoint":700,"specHeat": 0.1,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":"thermals","conductionRadius":0.21}],
+        ["en4l", 0.24, 5.12, 1.35,{"isExhaust":"mainEngine","chemEnergy":1000,"burnRate":0.39,"flashPoint":700,"specHeat": 0.1,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":"thermals","conductionRadius":0.21}],
+        {"group":"citybus_engine_R"},
+        ["en1r", -0.24, 6.03, 0.44],
+        {"engineGroup":["engine_block","exhaust_manifold"]},
+        ["en2r", -0.24, 5.2, 0.36],
+        {"engineGroup":"engine_block"},
+        ["en3r", -0.24, 5.95, 1.42],
+        ["en4r", -0.24, 5.12, 1.35],
+        {"group":"citybus_engine_piping"},
+        {"nodeWeight":2.5},
+        ["in0",  -0.78, 5.55, 1.46, {"engineGroup":"intake"}],
+        ["ex0",   1.06, 6.02, 1.35],
+        ["ex6",   1.06, 6.02, 1.75],
+        {"engineGroup":""}
+        {"selfCollision":true}
+        {"collision":true}
+        {"group":""},
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        //--ENGINE CUBE--
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":20001000,"beamDamp":5000},
+        {"beamDeform":250000,"beamStrength":"FLT_MAX"},
+        ["en1r","en1l"],
+        ["en1r","en2r"],
+        ["en1r","en2l"],
+        ["en1r","en3r"],
+        ["en1r","en3l"],
+        ["en1r","en4r"],
+        ["en1r","en4l"],
+        ["en1l","en2r"],
+        ["en1l","en2l"],
+        ["en1l","en3r"],
+        ["en1l","en3l"],
+        ["en1l","en4r"],
+        ["en1l","en4l"],
+        ["en2r","en2l"],
+        ["en2r","en3r"],
+        ["en2r","en3l"],
+        ["en2r","en4r"],
+        ["en2r","en4l"],
+        ["en2l","en3r"],
+        ["en2l","en3l"],
+        ["en2l","en4r"],
+        ["en2l","en4l"],
+        ["en3r","en3l"],
+        ["en3r","en4r"],
+        ["en3r","en4l"],
+        ["en3l","en4r"],
+        ["en3l","en4l"{"isExhaust":"mainEngine"}],
+        ["en4r","en4l"],
+
+        //engine mounts
+        {"beamSpring":4001000,"beamDamp":2500},
+        {"beamDeform":50000,"beamStrength":295000},
+        {"deformGroup":"pipes_break","deformationTriggerRatio":0.1},
+        ["en1l", "fm18l",{"name":"engine","disableMeshBreaking":true,"disableTriangleBreaking":true}],
+        ["en1r", "fm18r",{"name":"engine","disableMeshBreaking":true,"disableTriangleBreaking":true}],
+        ["en3r", "fm18r"],
+        ["en3l", "fm18l"],
+        ["en1r", "fm18l"],
+        ["en1l", "fm18r"],
+
+        ["en2l", "fs16l"],
+        ["en2r", "fs16r"],
+
+        ["en2l", "fm16l"],
+        ["en2r", "fm16r"],
+
+        ["en4l", "fm16l"],
+        ["en4r", "fm16l"],
+        {"deformGroup":""},
+
+        //engine piping
+        {"beamSpring":51000,"beamDamp":500},
+        {"beamDeform":2000,"beamStrength":5000},
+        ["ex0", "ex6"{"isExhaust":"mainEngine"}],
+        ["ex0", "en3l"{"isExhaust":"mainEngine"}],
+        ["ex0", "en4l"],
+        ["ex6", "en3l"],
+        ["ex0", "en1l"],
+        ["ex6", "en4l"],
+        {"beamDeform":2000,"beamStrength":10000},
+        ["en3r", "in0"],
+        ["en4r", "in0"],
+        ["en1r", "in0"],
+        ["en2r", "in0"],
+
+        //limiters
+        {"beamType":"|SUPPORT", "beamLongBound":5},
+        {"beamSpring":10001000,"beamDamp":250},
+        {"beamDeform":150000,"beamStrength":850000},
+        {"beamPrecompression":0.8},
+        ["en4l", "sm18r"],
+        ["en4r", "sm18l"],
+        ["en2l", "fm18r"],
+        ["en2r", "fm18l"],
+
+        ["en1l", "fm18ll"],
+        ["en1r", "fm18rr"],
+        ["en2r", "fm16rr"],
+        ["en2l", "fm16ll"],
+
+        ["sp16l", "en2r"],
+        ["sp16r", "en2l"],
+        ["sp18l", "en1r"],
+        ["sp18r", "en1l"],
+        {"beamPrecompression":1},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+        ["id1:","id2:","id3:"],
+        {"dragCoef":5},
+        {"groundModel":"metal"},
+        {"optional":true},
+        ["en1r", "tra2r", "en4r"],
+        ["en4r", "en3r", "en1r"],
+        ["en1r", "en1l", "tra2l"],
+        ["tra2l", "tra2r", "en1r"],
+        ["en3l", "en1l", "en1r"],
+        ["en1r", "en3r", "en3l"],
+        ["en4r", "tra2r", "tra2l"],
+        ["tra2l", "en4l", "en4r"],
+        ["en3r", "en4r", "en4l"],
+        ["en4l", "en3l", "en3r"],
+        ["tra2l", "en1l", "en3l"],
+        ["en3l", "en4l", "tra2l"],
+        ["tra2l", "en1l","en4l"],
+        ["en3l", "en4l", "en1l"],
+        {"optional":false},
+
+        {"triangleType":"NONCOLLIDABLE"},
+        ["ex6", "ex0", "en3l"],
+        ["en3r", "in0", "en4r"],
+        {"triangleType":"NORMALTYPE"},
+        {"group":""},
+    ],
+}
+
+}

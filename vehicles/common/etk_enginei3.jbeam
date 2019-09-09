@@ -10,7 +10,7 @@
     "slots": [
         ["type", "default", "description"],
         ["etk_intake_i4","etk_intake_i4_turbo", "Intake",{"coreSlot":false}],
-        ["etk_exhaust","etk800_exhaust_i4", "Exhaust"],
+        ["etk_exhaust_i4_petrol","etk_exhaust_i4_petrol", "Exhaust"],
         ["etk_engine_i4_ecu","etk_engine_i4_ecu", "Engine Management",{"coreSlot":true}],
         ["n2o_system","", "Nitrous Oxide Injection"],
         ["etk_engine_i4_internals","etk_engine_i4_internals", "Engine Long Block",{"coreSlot":true}],

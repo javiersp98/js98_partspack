@@ -67,8 +67,8 @@
         "engineBlockAirCoolingEfficiency":18,
         "engineBlockTemperatureDamageThreshold":220,
         "cylinderWallTemperatureDamageThreshold":300,
-        "maxTorqueRating": 350,
-        "maxOverTorqueDamage": 175,
+        "maxTorqueRating": 500,
+        "maxOverTorqueDamage": 250,
         //exhaust
         "particulates":0.060,
         "instantAfterFireCoef": 1.5,
@@ -116,7 +116,7 @@
     "mainEngine":{
         "oilRadiatorArea":0.14,
         "oilRadiatorEffectiveness":1600,
-        "oilThermostatTemperature":90,
+        "oilThermostatTemperature":80,
         "oilVolume":4,
     },
 /*	

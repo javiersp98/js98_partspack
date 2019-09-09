@@ -1,0 +1,27 @@
+{
+
+"pessima_finaldrive_F_444": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.44:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "pessima_finaldrive_F",
+    "torsionReactorF" : {
+        "gearRatio":4.44,
+    },
+},
+
+"pessima_finaldrive_R_444": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.44:1 Rear Final Drive",
+        "value":150,
+    },
+    "slotType" : "pessima_finaldrive_R",
+    "differential_R" : {
+        "gearRatio":4.44
+    },
+},
+
+}

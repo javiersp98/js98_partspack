@@ -1,0 +1,27 @@
+{
+
+"midsize_finaldrive_F_389": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.89:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "midsize_finaldrive_F",
+    "torsionReactorF" : {
+		"gearRatio":3.89,
+    },
+},
+
+"midsize_finaldrive_F_444": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.44:1 Front Final Drive",
+        "value":250,
+    },
+    "slotType" : "midsize_finaldrive_F",
+    "torsionReactorF" : {
+		"gearRatio":4.44,
+    },
+},
+
+}

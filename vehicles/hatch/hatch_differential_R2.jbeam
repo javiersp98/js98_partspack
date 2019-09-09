@@ -1,0 +1,129 @@
+{
+	
+"hatch_differential_R2_lsd": {
+    "information":{
+        "authors":"javiersp98",
+        "name":"Limited Slip Rear Differential",
+        "value":800,
+    },
+    "slotType" : "hatch_differential_R_AWD",
+    "slots": [
+        ["type", "default", "description"]
+        ["hatch_driveshaft","hatch_driveshaft", "Rear Driveshaft"],
+        ["hatch_finaldrive_R","hatch_finaldrive_R_425", "Rear Final Drive", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        ["shaft", "driveshaft", "torsionReactorR", 1, {"breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":2}]
+        ["differential", "differential_R", "driveshaft", 1, {"diffType":"lsd", "lsdPreload":100, "lsdLockCoef":0.15, "lsdRevLockCoef":0.075, "friction":6, "uiName":"Rear Differential","defaultVirtualInertia":0.25}]
+    ],
+},
+
+"hatch_differential_R2_open": {
+    "information":{
+        "authors":"javiersp98",
+        "name":"Open Rear Differential",
+        "value":700,
+    },
+    "slotType" : "hatch_differential_R_AWD",
+    "slots": [
+        ["type", "default", "description"]
+        ["hatch_driveshaft","hatch_driveshaft", "Rear Driveshaft"],
+        ["hatch_finaldrive_R","hatch_finaldrive_R_425", "Rear Final Drive", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        ["shaft", "driveshaft", "torsionReactorR", 1, {"breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":2}]
+        ["differential", "differential_R", "driveshaft", 1, {"diffType":"open", "gearRatio": 1, "friction":5, "uiName":"Front Differential","defaultVirtualInertia":0.25}],
+    ],
+},
+
+"hatch_differential_R2_Locking": {
+    "information":{
+        "authors":"javiersp98",
+        "name":"Locking Rear Differential",
+        "value":600,
+    },
+    "slotType" : "hatch_differential_R_AWD",
+    "slots": [
+        ["type", "default", "description"]
+        ["hatch_driveshaft","hatch_driveshaft", "Rear Driveshaft"],
+        ["hatch_finaldrive_R","hatch_finaldrive_R_425", "Rear Final Drive", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        ["shaft", "driveshaft", "torsionReactorR", 1, {"breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":2}]
+        ["differential", "differential_R", "driveshaft", 1, {"diffType":["open","locked"], "lockTorque":15000, "friction":5, "uiName":"Rear Differential","defaultVirtualInertia":0.25}]
+    ],
+},
+
+"hatch_driveshaft": {
+    "information":{
+        "authors":"javiersp98",
+        "name":"Rear Driveshaft",
+        "value":200,
+    }
+    "slotType" : "hatch_driveshaft",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        ["torsionReactor", "torsionReactorR", "transfercase", 1, {}]
+        ["shaft", "driveshaft", "torsionReactorR", 1, {"breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":2}]
+    ],
+    "torsionReactorR": {
+        //"torqueReactionNodes:":["e2l","e2r","e3r"],
+    },
+}
+
+"hatch_finaldrive_R_389": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.89:1 Rear Final Drive",
+        "value":250,
+    },
+    "slotType" : "hatch_finaldrive_R",
+    "torsionReactorR" : {
+        "gearRatio":3.89,
+    },
+},
+
+"hatch_finaldrive_R_425": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.25:1 Rear Final Drive",
+        "value":250,
+    },
+    "slotType" : "hatch_finaldrive_R",
+    "torsionReactorR" : {
+        "gearRatio":4.25,
+    },
+},
+
+"hatch_finaldrive_R_444": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4.44:1 Rear Final Drive",
+        "value":250,
+    },
+    "slotType" : "hatch_finaldrive_R",
+    "torsionReactorR" : {
+        "gearRatio":4.44,
+    },
+},
+
+"hatch_finaldrive_R_race": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Race Adjustable Rear Final Drive",
+        "value":650,
+    },
+    "slotType" : "hatch_finaldrive_R",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+        ["$finaldrive_R", "range", ":1", "Differentials", 4.39, 2.0, 6.0, "Final Drive Gear Ratio", "Torque multiplication ratio", {"subCategory":"Rear"}]
+    ],
+    "torsionReactorR" : {
+		"gearRatio":"$finaldrive_R",
+    },
+},
+
+}

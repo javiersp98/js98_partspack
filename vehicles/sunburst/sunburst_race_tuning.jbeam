@@ -1,0 +1,63 @@
+{
+
+"sunburst_engine_ecu_performance": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Adjustable Performance ECU",
+        "value":600,
+    }
+    "slotType" : "sunburst_engine_ecu",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$revLimiterRPM", "range", "rpm", "Engine", 9000, 7000, 9000, "RPM Limit", "RPM where the rev limiter prevents further revving"{"stepDis":50}],
+        ["$revLimiterCutTime", "range", "s", "Engine", 0.10, 0.01, 0.5, "RPM Limit Cut Time", "How fast the rev limiter cycles"{"stepDis":0.01}],
+    ],
+    "controller": [
+        ["fileName"],
+        ["twoStepLaunch", {"rpmLimit":4100}]
+    ],
+    "mainEngine":{
+        "idleRPM":1100,
+        "revLimiterRPM":"$revLimiterRPM",
+        "revLimiterType":"timeBased",
+        "revLimiterCutTime":"$revLimiterCutTime",
+    },
+    "vehicleController": {
+        "highShiftUpRPM":"$=$revLimiterRPM - 200"
+        "cvtHighRPM":"$=$revLimiterRPM - 700"
+    },
+},
+
+"sunburst_engine_internals_stage3": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Stage 3 Performance Long Block",
+        "value":3600,
+    }
+    "slotType" : "sunburst_engine_internals",
+    "mainEngine":{
+        "torqueModMult":[
+            ["rpm", "torque"],
+            [0,    1],
+            [1000, 0.86],
+            [2500, 0.86],
+            [4000, 0.88],
+            [5000, 0.95],
+            [6000, 1.04],
+            [7000, 1.18],
+            [7500, 1.31],
+            [8000, 1.69],
+            [8500, 1.80],
+            [9000, 1.7],
+        ],
+
+        //max rpm physically capable of
+        "maxRPM":9000,
+        //engine durability
+        "cylinderWallTemperatureDamageThreshold":170,
+        "maxTorqueRating": 720,
+        "maxOverTorqueDamage": 250,
+    },
+},
+
+}

@@ -1,0 +1,31 @@
+{
+
+"burnside_finaldrive_R_355": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.55:1 Rear Final Drive",
+        "value":150,
+    },
+
+    "slotType" : "burnside_finaldrive_R",
+
+    "differential_R" : {
+        "gearRatio":3.55,
+    },
+},
+
+"burnside_finaldrive_R_308": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.08:1 Rear Final Drive",
+        "value":150,
+    },
+
+    "slotType" : "burnside_finaldrive_R",
+
+    "differential_R" : {
+        "gearRatio":3.08,
+    },
+},
+
+}

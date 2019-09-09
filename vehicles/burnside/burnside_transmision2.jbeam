@@ -153,8 +153,8 @@
     "slotType" : "burnside_converter",
     "torqueConverter": {
         "uiName":"Torque Converter",
-        "converterDiameter":0.31,
-        "converterStiffness":10,
+        "converterDiameter":0.32,
+        "converterStiffness":11,
         "couplingAVRatio":0.9,
         "stallTorqueRatio":1.8,
         "additionalEngineInertia":0.2,
